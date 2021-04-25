@@ -1,0 +1,32 @@
+name:                lab3
+
+dependencies:
+- base >= 4.7 && < 5
+- MonadRandom
+- hspec
+- QuickCheck
+- record-hasfield
+
+default-extensions:
+- GeneralizedNewtypeDeriving
+- LambdaCase
+- ScopedTypeVariables
+
+ghc-options:
+- -Wall
+- -Wno-name-shadowing
+- -F -pgmF=record-dot-preprocessor
+
+library:
+  source-dirs: src
+
+tests:
+  lab3-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - lab3
